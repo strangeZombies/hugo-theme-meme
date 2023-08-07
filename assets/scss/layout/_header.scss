@@ -42,6 +42,10 @@ $brandHeight: null;
         width: $siteBrandSVGWidth;
         height: $siteBrandSVGHeight;
         fill: $siteBrandSVGFill;
+        position: absolute;
+        text-decoration: none;
+        margin-top: .3rem;
+        margin-left: .2rem;
     }
     $brandHeight: $siteBrandSVGHeight;
 } @else {
@@ -49,6 +53,7 @@ $brandHeight: null;
         font-size: $siteBrandFontSize;
         color: $siteBrandFontColor;
         text-decoration: none;
+        position: absolute;
         &:hover {
             color: $siteBrandFontColor;
         }

@@ -2,29 +2,38 @@
     <footer id="footer" class="footer">
         <div class="footer-inner">
             <div class="site-info">
-              {{- if .Site.Params.displayCopyleftSymbol -}}
-                  <span class="copyleft-symbol">🄯</span>&nbsp;
-              {{- end -}}
-              {{- if .Site.Params.displayCopyrightSymbol -}}
-                  ©&nbsp;
+              
+              {{- with .Site.Params.iconBetweenYearAndAuthor -}}
+              {{- partial "utils/icon.html" (dict "$" $ "name" . "class" "footer-icon") -}}
               {{- end -}}
 
               {{- if .Site.Params.displaySiteCreatedYear -}}
-                  {{- dateFormat "2006" (time .Site.Params.siteCreatedTime) -}}–
+              {{- $siteCreatedYear := dateFormat "2006" (time .Site.Params.siteCreatedTime) -}}
+              {{- $currentYear := now.Format "2006" -}}
+              {{- if eq $siteCreatedYear $currentYear -}}
+                {{- $siteCreatedYear -}}
+              {{- else -}}
+                {{- $siteCreatedYear -}}–{{- $currentYear -}}
               {{- end -}}
+            {{- else -}}
               {{- now.Format "2006" -}}
+            {{- end -}}
+            
 
-              {{- with .Site.Params.iconBetweenYearAndAuthor -}}
-                  &nbsp;{{- partial "utils/icon.html" (dict "$" $ "name" . "class" "footer-icon") -}}
+              {{- if .Site.Params.displayCopyleftSymbol -}}
+                  <span class="copyleft-symbol">🄯</span>
+              {{- end -}}
+              {{- if .Site.Params.displayCopyrightSymbol -}}
+                  ©
               {{- end -}}
 
               {{- if .Site.Params.displaySiteAuthorName -}}
-                  &nbsp;{{- .Site.Author.name -}}
+                  <a href="{{.Site.Params.menu.main.pageref}}">{{- .Site.Author.name -}}</a>
               {{- end -}}
             </div>
 
             {{- if .Site.Params.displayPoweredBy }}
-                {{- $raw := `Powered by [Hugo](https://github.com/gohugoio/hugo) | Theme is [MemE](https://github.com/reuixiy/hugo-theme-meme)` -}}
+                {{- $raw := `使用[Hugo](https://github.com/gohugoio/hugo)引擎和[MemE](https://github.com/strangeZombies/hugo-theme-meme)主题构建` -}}
                 <div class="powered-by">{{ partial "utils/markdownify.html" (dict "$" $ "raw" $raw "isContent" false) }}</div>
             {{- end }}
 
