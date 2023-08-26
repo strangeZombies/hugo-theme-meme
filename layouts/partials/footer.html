@@ -2,9 +2,16 @@
     <footer id="footer" class="footer">
         <div class="footer-inner">
             <div class="site-info">
-              
+
               {{- with .Site.Params.iconBetweenYearAndAuthor -}}
               {{- partial "utils/icon.html" (dict "$" $ "name" . "class" "footer-icon") -}}
+              {{- end -}}
+
+              {{- if .Site.Params.displayCopyleftSymbol -}}
+              <span class="copyleft-symbol">🄯</span>
+              {{- end -}}
+              {{- if .Site.Params.displayCopyrightSymbol -}}
+              ©
               {{- end -}}
 
               {{- if .Site.Params.displaySiteCreatedYear -}}
@@ -18,14 +25,6 @@
             {{- else -}}
               {{- now.Format "2006" -}}
             {{- end -}}
-            
-
-              {{- if .Site.Params.displayCopyleftSymbol -}}
-                  <span class="copyleft-symbol">🄯</span>
-              {{- end -}}
-              {{- if .Site.Params.displayCopyrightSymbol -}}
-                  ©
-              {{- end -}}
 
               {{- if .Site.Params.displaySiteAuthorName -}}
                   <a href="{{.Site.Params.menu.main.pageref}}">{{- .Site.Author.name -}}</a>
