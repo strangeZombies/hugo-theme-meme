@@ -3,15 +3,11 @@
         <div class="footer-inner">
             <div class="site-info">
 
-              {{- with .Site.Params.iconBetweenYearAndAuthor -}}
-              {{- partial "utils/icon.html" (dict "$" $ "name" . "class" "footer-icon") -}}
-              {{- end -}}
-
               {{- if .Site.Params.displayCopyleftSymbol -}}
-              <span class="copyleft-symbol">🄯</span>
+              <span class="copyleft-symbol">🄯</span><span>由</span>
               {{- end -}}
               {{- if .Site.Params.displayCopyrightSymbol -}}
-              ©
+              ©<span>由</span>
               {{- end -}}
 
               {{- if .Site.Params.displaySiteCreatedYear -}}
@@ -27,8 +23,14 @@
             {{- end -}}
 
               {{- if .Site.Params.displaySiteAuthorName -}}
-                  <a href="{{.Site.Params.menu.main.pageref}}">{{- .Site.Author.name -}}</a>
+                  <span>年的</span><a href="{{.Site.Params.menu.main.pageref}}">{{- .Site.Author.name -}}</a><span>献上</span>
               {{- end -}}
+
+              {{- with .Site.Params.iconBetweenYearAndAuthor -}}
+              {{- partial "utils/icon.html" (dict "$" $ "name" . "class" "footer-icon") -}}
+              <span>版权所有</span>
+              {{- end -}}
+
             </div>
 
             {{- if .Site.Params.displayPoweredBy }}
