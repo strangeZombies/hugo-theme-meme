@@ -34,7 +34,7 @@
             </div>
 
             {{- if .Site.Params.displayPoweredBy }}
-                {{- $raw := `使用[Hugo](https://github.com/gohugoio/hugo)引擎和[MemE](https://github.com/strangeZombies/hugo-theme-meme)主题构建` -}}
+                {{- $raw := `使用[Hugo](https://github.com/gohugoio/hugo)引擎、[MemE](https://github.com/strangeZombies/hugo-theme-meme)主题、[保罗](https://api.paugram.com/)API构建` -}}
                 <div class="powered-by">{{ partial "utils/markdownify.html" (dict "$" $ "raw" $raw "isContent" false) }}</div>
             {{- end }}
 

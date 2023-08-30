@@ -1,6 +1,23 @@
 .header {
     z-index: 3;
 }
+/* 由于对layout的修改$siteBrandSVG将永远显示，顺便也增加了此处*/
+.site-brand {
+    a,svg {
+        transition: color 0.3s ease, fill 0.3s ease; /* 添加过渡效果 */
+    }
+    svg {
+        color: $siteBrandFontColor;
+        fill: $siteBrandFontColor;
+    }
+    
+    &:hover {
+        svg {
+            color: $siteBrandSVGFill;
+            fill: $siteBrandSVGFill;
+        }
+    }
+}
 
 @if ($headerLayoutFlex) {
     .header {
@@ -8,10 +25,11 @@
         width: 100vw;
     }
     .header-wrapper {
-        padding: 1em 0;
+        padding: .4em 0;
         @include blur;
-        background: $headerBackground;
-        transition: background $duration;
+        background: transparent;
+        /*background: $headerBackground;
+        transition: background $duration;*/
     }
     .header-inner {
         display: flex;
@@ -37,6 +55,7 @@
 }
 
 $brandHeight: null;
+/* 由于对layout的修改$siteBrandSVG将永远显示，而此处的就不修改了*/
 @if ($siteBrandSVG) {
     .brand {
         width: $siteBrandSVGWidth;

@@ -224,16 +224,19 @@ $baseRelURL: "{{ "" | relURL | strings.TrimSuffix "/" }}";
         $headerBackground: {{ . }};
     {{ end }}
 
-    {{ if .Site.Params.siteBrandSVG }}
+    /* 由于对layout的修改$siteBrandSVG将永远显示，而此处就关闭判断 */
+    /*{{ if .Site.Params.siteBrandSVG }}*/
         $siteBrandSVG: true;
         $siteBrandSVGWidth: {{ .Site.Params.siteBrandSVGWidth }}px;
         $siteBrandSVGHeight: {{ .Site.Params.siteBrandSVGHeight }}px;
         $siteBrandSVGFill: {{ .Site.Params.siteBrandSVGFill }};
-    {{ else }}
+        /* 由于对layout的修改$siteBrandSVG将永远显示，而此处就添加了这一条*/
+        $siteBrandFontColor: {{ .Site.Params.siteBrandFontColor }};
+    /*{{ else }}
         $siteBrandSVG: false;
         $siteBrandFontSize: {{ .Site.Params.siteBrandFontSize }}em;
         $siteBrandFontColor: {{ .Site.Params.siteBrandFontColor }};
-    {{ end }}
+    {{ end }}*/
 
     @import 'layout/header';
 

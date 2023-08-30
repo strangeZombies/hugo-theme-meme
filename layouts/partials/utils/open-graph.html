@@ -39,6 +39,27 @@
         <meta property="article:expiration_time" content="{{ $.ExpiryDate.Format "2006-01-02T15:04:05-07:00" }}" />
     {{- end }}
     <meta property="article:section" content="{{ $.Section }}" />
+    <!-- 添加关键词的元标签 -->
+    {{ if $.Site.Params.enablePostTags }}
+        {{ with $.Params.tags }}
+            <!-- 将博客文章的标签转化为逗号分隔的字符串 -->
+            {{ $tagsString := delimit . ", " }}
+            <!-- 将标签作为 meta 关键词 -->
+            <meta name="keywords" content="{{ $tagsString }}">
+        {{ end }}
+    {{ end }}
 {{ else -}}
     <meta property="og:type" content="website" />
+     <!-- 添加关键词的元标签 -->
+    {{ if $.Site.Params.enableSiteTags }}
+        {{ with $.Site.Params.SiteTags }}
+            <!-- 将博客文章的标签转化为逗号分隔的字符串 -->
+            {{ $tagsString := delimit . ", " }}
+            <!-- 将标签作为 meta 关键词 -->
+            <meta name="keywords" content="{{ $tagsString }}">
+        {{ end }}
+    {{ end }}
 {{- end }}
+
+<!-- 添加发布者的元标签 -->
+<meta name="publisher" content="https://page.takami.cyou/about" />
