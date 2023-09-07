@@ -17,11 +17,13 @@
                 <summary class="summary p-summary">
                     {{ partial "utils/summary.html" . }}
                 </summary>
+                {{/*  客主觉得这里太冗余就注释掉了 也可在这里制作isReadMoreVisible: false
                 {{ if or .Truncated .Params.summary }}
                     <div class="read-more-container">
                         <a href="{{ .RelPermalink }}" class="read-more-link">{{ i18n "readMore" }} »</a>
-                    </div>
+                    </div> 
                 {{ end }}
+                */}}
             </article>
         {{ end }}
         {{ if or $paginator.HasPrev $paginator.HasNext }}
