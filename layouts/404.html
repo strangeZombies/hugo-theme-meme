@@ -25,12 +25,10 @@
         <script>
             // 获取当前URL
             var currentUrl = window.location.href;
-            
             // 检查URL是否包含最后一个斜杠后的非法字符
             var lastSlashIndex = currentUrl.lastIndexOf('/');
             if (lastSlashIndex !== -1) {
                 var remainingPath = currentUrl.substr(lastSlashIndex + 1);
-                
                 // 检查是否包含非法字符（例如括号）
                 if (remainingPath.match(/[\(\)#]/)) {
                     // 包含非法字符，将其移除并重定向
