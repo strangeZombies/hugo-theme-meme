@@ -112,6 +112,13 @@ ol, ul {
         padding: 0;
         overflow: auto hidden;
         white-space: nowrap;
+        position: fixed;
+        right: 0;
+        top: calc(50% - 5em);
+        max-width: calc((100% - 648px) / 2 );
+        li {
+            max-width:  calc(((100% - 648px) / 2) - 2em);
+        }
     }
 }
 
