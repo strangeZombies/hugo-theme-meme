@@ -3,36 +3,35 @@
 
         {{ $attrs := partial "utils/data-attributes.html" . }}
 
-        <article class="content post h-entry"
-        {{- with .Params.languageCode }} lang="{{ . }}"{{ end }}
-        {{- if $attrs.smallCaps }} data-small-caps="true"{{ end }}
-        {{- with $attrs.align }} data-align="{{ . }}"{{ end }}
-        {{- with $attrs.type }} data-type="{{ . }}"{{ end }}
-        {{- with $attrs.layout }} data-layout="{{ . }}"{{ end }}
-        {{- if $attrs.indent }} data-indent="true"{{ end }}
-        {{- if $attrs.tocNum }} data-toc-num="true"{{ end }}>
+        <article class="content post h-entry" {{- with .Params.languageCode }} lang="{{ . }}" {{ end }} {{- if
+            $attrs.smallCaps }} data-small-caps="true" {{ end }} {{- with $attrs.align }} data-align="{{ . }}" {{ end }}
+            {{- with $attrs.type }} data-type="{{ . }}" {{ end }} {{- with $attrs.layout }} data-layout="{{ . }}" {{ end
+            }} {{- if $attrs.indent }} data-indent="true" {{ end }} {{- if $attrs.tocNum }} data-toc-num="true" {{ end
+            }}>
 
             <h1 class="post-title p-name">{{ (partial "utils/title.html" (dict "$" $ "title" $.Title)).htmlTitle }}</h1>
 
             {{ with .Params.subtitle }}
-                {{- $raw := . -}}
-                <div class="post-subtitle p-name">{{ partial "utils/markdownify.html" (dict "$" $ "raw" $raw "isContent" false) }}</div>
+            {{- $raw := . -}}
+            <div class="post-subtitle p-name">{{ partial "utils/markdownify.html" (dict "$" $ "raw" $raw "isContent"
+                false) }}</div>
             {{ end }}
 
             {{ if .Site.Params.displayPostDescription }}
-                {{ with .Params.description }}
-                    {{- $raw := . -}}
-                    <div class="post-description p-summary">{{ partial "utils/markdownify.html" (dict "$" $ "raw" $raw "isContent" false) }}</div>
-                {{ end }}
+            {{ with .Params.description }}
+            {{- $raw := . -}}
+            <div class="post-description p-summary">{{ partial "utils/markdownify.html" (dict "$" $ "raw" $raw
+                "isContent" false) }}</div>
+            {{ end }}
             {{ end }}
 
             {{ if .Params.meta | default .Site.Params.enablePostMeta }}
-                {{ partial "components/post-meta.html" (dict "$" . "isHome" false) }}
+            {{ partial "components/post-meta.html" (dict "$" . "isHome" false) }}
             {{ end }}
 
             {{ $enableTOC := .Params.toc | default .Site.Params.enableTOC -}}
             {{- if $enableTOC -}}
-                {{- partial "utils/toc.html" . -}}
+            {{- partial "utils/toc.html" . -}}
             {{- end -}}
 
             <div class="post-body e-content">
@@ -44,7 +43,7 @@
         </article>
 
         {{ if and .Site.Params.enableGoogleAdUnits (eq hugo.Environment "production") -}}
-            {{ partial "third-party/google-adsense-unit.html" . }}
+        {{ partial "third-party/google-adsense-unit.html" . }}
         {{- end }}
 
         {{ partial "components/post-updated-badge.html" . }}
@@ -64,6 +63,10 @@
         {{ partial "components/post-nav.html" . }}
 
         {{ partial "components/comments.html" . }}
+        
+        <script>
+           
 
+        </script>
     </div>
 </main>
