@@ -42,6 +42,8 @@
 
         </article>
 
+        {{ partial "components/post-tags.html" . }}
+
         {{ if and .Site.Params.enableGoogleAdUnits (eq hugo.Environment "production") -}}
         {{ partial "third-party/google-adsense-unit.html" . }}
         {{- end }}
@@ -50,11 +52,7 @@
 
         {{ partial "components/post-gitinfo.html" . }}
 
-        {{ partial "components/post-tags.html" . }}
-
         {{ partial "components/post-share.html" . }}
-
-        {{ partial "components/related-posts.html" . }}
 
         {{ partial "components/minimal-footer.html" . }}
 
@@ -62,7 +60,11 @@
 
         {{ partial "components/post-nav.html" . }}
 
+        {{ partial "components/related-posts.html" . }}
+
         {{ partial "components/comments.html" . }}
+
+        {{ partial "components/kv-comment.html" . }}
         
         <script>
            
