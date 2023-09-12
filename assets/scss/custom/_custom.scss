@@ -24,10 +24,18 @@
 }
 
 .poet-container {
-    width: auto;
+    width: 100%;
     padding: .2em;
-    margin: .2em;
-    border-bottom: 2px #442 double;
+    background: rgba($color: saddlebrown, $alpha: 0);
+    border-radius: .3em;
+    transition-property: all, left, top, height;
+    transition-duration: 1s;
+
+    &:hover {
+        background: rgba($color: saddlebrown, $alpha: .1);
+        transform: scale(1.1);
+        border: 2px rgb(194, 140, 102) double;
+    }
 }
 
 .poet-title,
