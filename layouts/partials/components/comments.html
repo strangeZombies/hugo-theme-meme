@@ -6,6 +6,35 @@
             </div>
         {{  end }}
 
+        {{ if .Site.Params.enableWaline }}
+            <div id="waline"></div>
+            <script type="module">
+                import { init } from 'https://cdn.bootcdn.net/ajax/libs/waline/2.15.7/waline.min.js'; 
+                const locale = {
+                  nick : '昵称',
+                  placeholder: '欢迎留爪',
+                  sofa: '空空空~',
+                  comment: 'thoughts or moods',
+                  more: '还有~',
+                  emoji: 'emoji',
+                  admin: '爱摸鱼的修理工',
+                  level0: '潜水',
+                  level1: '冒泡',
+                  level2: '吐槽',
+                  level3: '活跃',
+                  level4: '话唠',
+                  level5: '传说',
+                };
+            
+                init({
+                  el: '#waline',
+                  serverURL: '{{ .Site.Params.walineServer }}',
+                  locale,
+                  texRenderer: false,
+                });
+              </script>
+        {{ end }}
+
         {{ if .Site.Params.enableDisqus }}
             <div id="disqus_thread"></div>
         {{ end }}
