@@ -1,6 +1,6 @@
 
 // shortcode - poetry
-@import url('https://cdn.bootcdn.net/ajax/libs/lxgw-wenkai-screen-webfont/1.7.0/style.min.css');
+@import url('https://unpkg.com/lxgw-wenkai-webfont@v1/style.css');
 
 .poet {
     /* 原版 */
@@ -78,7 +78,7 @@
     /* 从上到下，从右到左 */
     text-orientation: mixed;
     /* 混合方向，确保文本正确呈现 */
-    white-space: nowrap;
+    white-space: wrap;
     /* 防止文本换行 */
     font-size: 1em;
     /* 根据需要调整字体大小 */

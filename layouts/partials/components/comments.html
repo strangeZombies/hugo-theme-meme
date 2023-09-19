@@ -7,31 +7,32 @@
         {{  end }}
 
         {{ if .Site.Params.enableWaline }}
+        <head>
+            <link rel="stylesheet" type="text/css" href="https://unpkg.com/@waline/client@2.14.6/dist/waline.css">
+            <link rel="stylesheet" type="text/css" href="https://unpkg.com/@waline/client@2.14.6/dist/waline-meta.css">
+          </head>
+          <body>
+            <!-- ... -->
             <div id="waline"></div>
             <script type="module">
-                import { init } from 'https://cdn.bootcdn.net/ajax/libs/waline/2.15.7/waline.min.js'; 
-                const locale = {
-                  nick : '昵称',
-                  placeholder: '欢迎留爪',
-                  sofa: '空空空~',
-                  comment: 'thoughts or moods',
-                  more: '还有~',
-                  emoji: 'emoji',
-                  admin: '爱摸鱼的修理工',
-                  level0: '潜水',
-                  level1: '冒泡',
-                  level2: '吐槽',
-                  level3: '活跃',
-                  level4: '话唠',
-                  level5: '传说',
-                };
-            
-                init({
-                  el: '#waline',
-                  serverURL: '{{ .Site.Params.walineServer }}',
-                  locale,
-                  texRenderer: false,
-                });
+              import { init } from 'https://unpkg.com/@waline/client@v2.14.6/dist/waline.mjs';
+          
+              init({
+                el: '#waline',
+                lang: 'zh-CN',
+                reaction: true, // 开启反应
+                serverURL: 'https://waline.takami.cyou',
+                dark: 'body.dark',
+                copyright: false,
+                
+              // 设置 emoji 为贴吧与哔哩哔哩
+              emoji: [
+                '//cdn.jsdelivr.net/gh/walinejs/emojis@1.0.0/tieba',
+                '//cdn.jsdelivr.net/gh/walinejs/emojis@1.0.0/bilibili',
+              ],
+              });
+            </script>
+          </body>
               </script>
         {{ end }}
 
