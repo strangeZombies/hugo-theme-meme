@@ -4,12 +4,13 @@
 
 .post-title {
     text-align: center;
+    font-weight: 500;
 }
 
 .post-subtitle {
     font-size: 1.8em;
     text-align: center;
-    font-weight: 700;
+    font-weight: 500;
     margin-top: -0.618em;
 }
 
@@ -20,7 +21,7 @@
 }
 
 .post-body {
-    margin-top: 5em !important;
+   // margin-top: 5em !important;
     a {
         text-decoration: underline;
         text-decoration-color: var(--color-contrast-low);
@@ -70,6 +71,9 @@
             padding-left: 2em;
         }
     }
+   // border: 2px double var(--color-contrast-medium);
+    border-radius: .2em;
+    padding-left: .2em;
 }
 
 blockquote {
@@ -102,7 +106,7 @@ blockquote {
 }
 
 .contents {
-    margin-top: 5em;
+    //margin-top: 5em;
     ol, ul {
         list-style: none;
     }

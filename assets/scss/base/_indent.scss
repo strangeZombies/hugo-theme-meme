@@ -32,7 +32,9 @@
             position: relative;
             transform: none;
             display: block;
-            float: none;
+            float: left;
+            left: 0;
+            top: 0;
         }
         ol, ul {
             margin: 0;
