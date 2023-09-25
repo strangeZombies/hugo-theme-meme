@@ -1,92 +1,122 @@
-{{ if or (and .IsHome .Site.Params.displayFooterInHome) (and (not .IsHome) (.Site.Params.displayFooter | default .Site.Params.enableFooter)) }}
-    <footer id="footer" class="footer">
-        <div class="footer-inner">
-            <div class="site-info">
-
-              {{- if .Site.Params.displayCopyleftSymbol -}}
-              <span class="copyleft-symbol">🄯</span><span>由</span>
-              {{- end -}}
-              {{- if .Site.Params.displayCopyrightSymbol -}}
-              ©<span>由</span>
-              {{- end -}}
-
-              {{- if .Site.Params.displaySiteCreatedYear -}}
-              {{- $siteCreatedYear := dateFormat "2006" (time .Site.Params.siteCreatedTime) -}}
-              {{- $currentYear := now.Format "2006" -}}
-              {{- if eq $siteCreatedYear $currentYear -}}
-                {{- $siteCreatedYear -}}
-              {{- else -}}
-                {{- $siteCreatedYear -}}–{{- $currentYear -}}
-              {{- end -}}
-            {{- else -}}
-              {{- now.Format "2006" -}}
+{{ if or (and .IsHome .Site.Params.displayFooterInHome) (and (not .IsHome) (.Site.Params.displayFooter | default
+.Site.Params.enableFooter)) }}
+<footer id="footer" class="footer">
+    <div class="footer-inner">
+        <span class="site-info">
+            {{- if .Site.Params.displayCopyleftSymbol -}}
+            <span class="copyleft-symbol">🄯</span><span>由</span>
+            {{- end -}}
+            {{- if .Site.Params.displayCopyrightSymbol -}}
+            {{/*©*/}}<span>由 </span>
             {{- end -}}
 
-              {{- if .Site.Params.displaySiteAuthorName -}}
-                  <span>年的</span><a href="{{.Site.Params.menu.main.pageref}}">{{- .Site.Author.name -}}</a><span>献上</span>
-              {{- end -}}
+            {{- if .Site.Params.displaySiteCreatedYear -}}
+            {{- $siteCreatedYear := dateFormat "2006" (time .Site.Params.siteCreatedTime) -}}
+            {{- $currentYear := now.Format "2006" -}}
+            {{- if eq $siteCreatedYear $currentYear -}}
+            {{- $siteCreatedYear -}}
+            {{- else -}}
+            {{- $siteCreatedYear -}}–{{- $currentYear -}}
+            {{- end -}}
+            {{- else -}}
+            {{- now.Format "2006" -}}
+            {{- end -}}
 
-              {{- with .Site.Params.iconBetweenYearAndAuthor -}}
-              {{- partial "utils/icon.html" (dict "$" $ "name" . "class" "footer-icon") -}}
-              <span>版权所有</span>
-              {{- end -}}
+            {{- if .Site.Params.displaySiteAuthorName -}}
+            {{$scratch := newScratch}}
+            {{ range (where .Site.Pages "Kind" "page" )}}
+            {{$scratch.Add "total" .WordCount}}
+            {{ end }}
+            {{- $raw :=
+            `采用
+            [Hugo](https://github.com/gohugoio/hugo)
+            [MemE](https://github.com/strangeZombies/hugo-theme-meme)
+            [保罗](https://api.paugram.com/)
+            呈现`
+            -}}
+            <span>年间</span>
+            发布了
+            <a href="{{.Site.Params.menu.main.pageref}}/posts">{{len (where .Site.RegularPages "Section" "posts") }} 篇文章<span>({{$scratch.Get "total" }}字)</span></a>
+            的
+            <a href="{{.Site.Params.menu.main.pageref}}">{{- .Site.Author.name -}}</a>
+            <span>{{ partial
+                "utils/markdownify.html" (dict "$" $ "raw" $raw "isContent" false) }}
+            </span>
+            {{- end -}}
 
-            </div>
+            {{/*
 
-            {{- if .Site.Params.displayPoweredBy }}
-                {{- $raw := `使用[Hugo](https://github.com/gohugoio/hugo)引擎、[MemE](https://github.com/strangeZombies/hugo-theme-meme)主题、[保罗](https://api.paugram.com/)API构建` -}}
-                <div class="powered-by">{{ partial "utils/markdownify.html" (dict "$" $ "raw" $raw "isContent" false) }}</div>
-            {{- end }}
+            {{- with .Site.Params.iconBetweenYearAndAuthor -}}
+            {{- partial "utils/icon.html" (dict "$" $ "name" . "class" "footer-icon") -}}
+            <span>版权所有</span>
+            {{- end -}}
 
-            {{- if .Site.Params.displaySiteCopyright }}
-                {{- $raw := .Site.Copyright -}}
-                <div class="site-copyright">{{ partial "utils/markdownify.html" (dict "$" $ "raw" $raw "isContent" false) }}</div>
-            {{- end }}
+            */}}
 
-            {{- with .Site.Params.customFooter }}
-                {{- $raw := . -}}
-                <div class="custom-footer">{{ partial "utils/markdownify.html" (dict "$" $ "raw" $raw "isContent" false) }}</div>
-            {{- end }}
+        </span>
+        {{/*
+        {{- if .Site.Params.displayPoweredBy }}
+        {{- $raw :=
+        `使用[Hugo](https://github.com/gohugoio/hugo)+[MemE](https://github.com/strangeZombies/hugo-theme-meme)+[保罗](https://api.paugram.com/)构建`
+        -}}
+        <div class="powered-by">{{ partial "utils/markdownify.html" (dict "$" $ "raw" $raw "isContent" false) }}</div>
+        {{- end }}
 
-            {{- if and .Site.Params.displayBusuanziSiteUVAndPV (eq hugo.Environment "production") }}
-                <div class="busuanzi-site-uv-and-pv">
-                    <span id="busuanzi_container_site_uv">
-                        {{- with .Site.Params.busuanziSiteUVText -}}
-                            {{- . -}}
-                            &nbsp;
-                        {{- end -}}
+        */}}
 
-                        {{- with .Site.Params.busuanziSiteUVIcon -}}
-                            {{- partial "utils/icon.html" (dict "$" $ "name" $.Site.Params.busuanziSiteUVIcon "class" "busuanzi-site-uv") -}}
-                            &nbsp;
-                        {{- end -}}
-
-                        <!-- Avoid extra spaces -->
-                        {{- print `<span id="busuanzi_value_site_uv"></span>` | safeHTML -}}
-                    </span>
-
-                    {{- print "&nbsp;|&nbsp;" | safeHTML -}}
-
-                    <span id="busuanzi_container_site_pv">
-                        {{- with .Site.Params.busuanziSitePVText -}}
-                            {{- . -}}
-                            &nbsp;
-                        {{- end -}}
-
-                        {{- with .Site.Params.busuanziSitePVIcon -}}
-                            {{- partial "utils/icon.html" (dict "$" $ "name" $.Site.Params.busuanziSitePVIcon "class" "busuanzi-site-pv") -}}
-                            &nbsp;
-                        {{- end -}}
-
-                        <!-- Avoid extra spaces -->
-                        {{- print `<span id="busuanzi_value_site_pv"></span>` | safeHTML -}}
-                    </span>
-                </div>
-            {{- end }}
-
-            {{ partial "components/socials.html" . }}
-
-            {{ partial "custom/footer.html" . }}
+        {{- if .Site.Params.displaySiteCopyright }}
+        {{- $raw := .Site.Copyright -}}
+        <div class="site-copyright">{{ partial "utils/markdownify.html" (dict "$" $ "raw" $raw "isContent" false) }}
         </div>
-    </footer>
+        {{- end }}
+
+        {{- with .Site.Params.customFooter }}
+        {{- $raw := . -}}
+        <div class="custom-footer">{{ partial "utils/markdownify.html" (dict "$" $ "raw" $raw "isContent" false) }}
+        </div>
+        {{- end }}
+
+        {{- if and .Site.Params.displayBusuanziSiteUVAndPV (eq hugo.Environment "production") }}
+        <div class="busuanzi-site-uv-and-pv">
+            <span id="busuanzi_container_site_uv">
+                {{- with .Site.Params.busuanziSiteUVText -}}
+                {{- . -}}
+                &nbsp;
+                {{- end -}}
+
+                {{- with .Site.Params.busuanziSiteUVIcon -}}
+                {{- partial "utils/icon.html" (dict "$" $ "name" $.Site.Params.busuanziSiteUVIcon "class"
+                "busuanzi-site-uv") -}}
+                &nbsp;
+                {{- end -}}
+
+                <!-- Avoid extra spaces -->
+                {{- print `<span id="busuanzi_value_site_uv"></span>` | safeHTML -}}
+            </span>
+
+            {{- print "&nbsp;|&nbsp;" | safeHTML -}}
+
+            <span id="busuanzi_container_site_pv">
+                {{- with .Site.Params.busuanziSitePVText -}}
+                {{- . -}}
+                &nbsp;
+                {{- end -}}
+
+                {{- with .Site.Params.busuanziSitePVIcon -}}
+                {{- partial "utils/icon.html" (dict "$" $ "name" $.Site.Params.busuanziSitePVIcon "class"
+                "busuanzi-site-pv") -}}
+                &nbsp;
+                {{- end -}}
+
+                <!-- Avoid extra spaces -->
+                {{- print `<span id="busuanzi_value_site_pv"></span>` | safeHTML -}}
+            </span>
+        </div>
+        {{- end }}
+
+        {{ partial "components/socials.html" . }}
+
+        {{ partial "custom/footer.html" . }}
+    </div>
+</footer>
 {{ end }}
