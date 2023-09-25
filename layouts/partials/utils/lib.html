@@ -17,7 +17,7 @@
 {{- end -}}
 
 {{- if eq $type "instantsearch" -}}
-    {{- $defalut := "/instantsearch.js@v4/dist/instantsearch.production.min.js" -}}
+    {{- $defalut := "/instantsearch.js@2/dist/instantsearch.min.js" -}}
     {{- $path = $.Site.Params.lib.path.instantsearch | default $defalut -}}
 {{- end -}}
 
