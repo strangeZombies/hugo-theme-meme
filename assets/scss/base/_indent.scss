@@ -19,6 +19,12 @@
         img, video {
             margin: 1em auto;
         }
+        figure {
+            img {
+                margin: 0 auto;
+                padding: 0;
+            }
+        }
         table {
             margin: 1em 0;
         }

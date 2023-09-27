@@ -43,6 +43,18 @@
         border: 1px solid var(--color-contrast-lower);
         clear: both;
     }
+    figure {
+        img {
+            margin: 0 auto;
+            padding: 0;
+        }
+    }
+    figcaption {
+        font-weight: 400;
+        color: var(--color-contrast-medium);
+        font-size: .8em;
+        text-align: center;
+    }
     video {
         display: block;
         max-width: 100%;
