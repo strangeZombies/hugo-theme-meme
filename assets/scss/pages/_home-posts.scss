@@ -17,10 +17,49 @@
     text-align: center;
     margin-top: 1.618em;
 }
+
 .read-more-link {
     display: inline-block;
 }
 
+.pagination {
+    display: flex;
+    padding: 0 22px;
+    justify-content: center;
+    padding: .1em;
+
+    li {
+        a {
+            position: relative;
+            font-size: .9em;
+            font-weight: 500;
+            border-bottom: 4px double transparent;
+            padding: .2em .4em;
+            &:hover {
+                font-weight: 700;
+                color: var(--color-primary);
+                border-color: var(--color-primary);
+            }
+
+        }
+    }
+}
+
+.pag-item {
+    display: block;
+    color: inherit;
+    flex: 0 1 auto;
+    text-align: center;
+    width: 42px;
+    height: 32px;
+    line-height: 32px;
+    cursor: pointer;
+    transition: background-color 100ms ease;
+    border-radius: 4px;
+    margin-left: 5px;
+}
+
+/*
 .pagination {
     list-style: none;
     margin: 5em 0 0;
@@ -38,3 +77,4 @@
     margin-left: auto;
     text-align: right;
 }
+*/

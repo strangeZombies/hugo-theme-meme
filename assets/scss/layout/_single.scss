@@ -3,8 +3,14 @@
 }
 
 .post-title {
-    text-align: center;
+    text-align: left;
     font-weight: 500;
+    a {
+        border-bottom: 4px double transparent;
+        &:hover {
+            border-color: var(--color-primary);
+        }
+    }
 }
 
 .post-subtitle {

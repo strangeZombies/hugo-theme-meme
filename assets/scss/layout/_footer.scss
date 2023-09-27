@@ -12,6 +12,17 @@
     }
 }
 
+.site-info {
+    a {
+        border-bottom: 4px double transparent;
+        padding: 0 .12em;
+        position: relative;
+        &:hover {
+            border-color: var(--color-primary);
+        }
+    }
+}
+
 .footer-inner {
     padding: 1em;
     text-align: center;

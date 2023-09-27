@@ -14,9 +14,11 @@
 .menu-item {
     display: inline-block;
     a {
+        border-bottom: 4px double transparent;
         color: var(--color-contrast-medium);
         &:hover {
             color: var(--color-primary);
+            border-color: var(--color-primary);
         }
     }
 }
