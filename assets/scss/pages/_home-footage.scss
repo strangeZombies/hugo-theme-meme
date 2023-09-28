@@ -1,5 +1,5 @@
 .home {
-    font-family: STShusong, serif;
+    font-family: 'STShusong', serif;
     &::before {
         background-image: $homePoster;
         background-repeat: no-repeat;
@@ -54,14 +54,14 @@
     }
     .motto {
         margin-bottom: 1em;
-        font-family: STKaiti, serif;
+        font-family: 'STKaiti', serif;
     }
     .description {
         line-height: 1.618;
         margin: 1em 0;
     }
     .keywords {
-        font-family: STFangsong, serif;
+        font-family: 'STFangsong', serif;
         line-height: 1.5;
         margin: 1em 0;
     }
