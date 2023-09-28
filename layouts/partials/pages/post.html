@@ -1,10 +1,100 @@
 <main class="main single" id="main">
     <div class="main-inner">
+
+        {{/* 有效但是不美观
         {{ if .Params.poetry }}
-            <style>
-                @charset "UTF-8";@import url("https://unpkg.com/lxgw-wenkai-webfont@v1/style.css");.poet {font-family: "LXGW WenKai", sans-serif;display: flex;flex-direction: column;align-items: center;padding: 0;margin: .5em;max-width: 1020px;font-size: 1em;overflow: hidden;}.zh-line .poet-md {writing-mode: inherit;}.zh-line .poet-md {line-height: 1em;}.poet-container {width: 90%;padding: .2em;background: rgba(139, 69, 19, 0);border-radius: .5em;transition-property: all, left, top, height;transition-duration: 1s;overflow: auto;}.poet-container:hover {background: rgba(139, 69, 19, 0.1);border: 2px #c28c66 double;}.poet-title, .poet-author {margin-bottom: .4em;white-space: nowrap;overflow: hidden;text-overflow: ellipsis;direction: ltr;line-height: 1em;width: 100%;text-align: center;font-size: 1.1em;}.poet-title {padding-bottom: 1em;text-indent: 1em;}.poet-author {margin-bottom: 0;text-align: end;font-size: .8em;margin-top: -.7em;}.poet-container span {border-radius: .2em;padding: .1em;}.poet-md {writing-mode: vertical-lr;text-orientation: mixed;white-space: nowrap;font-size: 1em;line-height: 1.5em;letter-spacing: .1em;}.zh-line .poet-title {margin-bottom: 0;padding-bottom: 1em;}.zh-line .poet-md {margin-top: -2em;padding-bottom: 1em;line-height: 1.5em;letter-spacing: .1em;}
-            </style>
+        <style>
+            @charset "UTF-8";
+            @import url("https://unpkg.com/lxgw-wenkai-webfont@v1/style.css");
+
+            .poet {
+                font-family: "LXGW WenKai", sans-serif;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                padding: 0;
+                margin: .5em;
+                max-width: 1020px;
+                font-size: 1em;
+                overflow: hidden;
+            }
+
+            .zh-line .poet-md {
+                writing-mode: inherit;
+            }
+
+            .zh-line .poet-md {
+                line-height: 1em;
+            }
+
+            .poet-container {
+                width: 90%;
+                padding: .2em;
+                background: rgba(139, 69, 19, 0);
+                border-radius: .5em;
+                transition-property: all, left, top, height;
+                transition-duration: 1s;
+                overflow: auto;
+            }
+
+            .poet-container:hover {
+                background: rgba(139, 69, 19, 0.1);
+                border: 2px #c28c66 double;
+            }
+
+            .poet-title,
+            .poet-author {
+                margin-bottom: .4em;
+                white-space: nowrap;
+                overflow: hidden;
+                text-overflow: ellipsis;
+                direction: ltr;
+                line-height: 1em;
+                width: 100%;
+                text-align: center;
+                font-size: 1.1em;
+            }
+
+            .poet-title {
+                padding-bottom: 1em;
+                text-indent: 1em;
+            }
+
+            .poet-author {
+                margin-bottom: 0;
+                text-align: end;
+                font-size: .8em;
+                margin-top: -.7em;
+            }
+
+            .poet-container span {
+                border-radius: .2em;
+                padding: .1em;
+            }
+
+            .poet-md {
+                writing-mode: vertical-lr;
+                text-orientation: mixed;
+                white-space: nowrap;
+                font-size: 1em;
+                line-height: 1.5em;
+                letter-spacing: .1em;
+            }
+
+            .zh-line .poet-title {
+                margin-bottom: 0;
+                padding-bottom: 1em;
+            }
+
+            .zh-line .poet-md {
+                margin-top: -2em;
+                padding-bottom: 1em;
+                line-height: 1.5em;
+                letter-spacing: .1em;
+            }
+        </style>
         {{ end }}
+        */}}
 
         {{ $attrs := partial "utils/data-attributes.html" . }}
 
@@ -67,12 +157,14 @@
 
         {{ partial "components/related-posts.html" . }}
 
+        {{ if not .IsHome }}
         {{ partial "components/comments.html" . }}
+        {{ end }}
 
         {{/* partial "components/kv-comment.html" . */}}
-        
+
         <script>
-           
+
 
         </script>
     </div>
