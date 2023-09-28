@@ -7,7 +7,7 @@
 
 }
 
-.post-nav-prev::after {
+.post-nav-next::after,.post-nav-prev::before {
     content: "";
     position: absolute;
     left: 0;
@@ -16,6 +16,9 @@
     height: 1px;
     border-bottom: 1px dashed var(--color-contrast-low);
 }
+.post-nav-prev::before {
+    top: 0;
+}
 
 .post-nav-prev {
     position: relative;
@@ -23,6 +26,7 @@
 }
 
 .post-nav-next {
+    position: relative;
     margin-left: auto;
     text-align: right;
 }

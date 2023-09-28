@@ -7,6 +7,7 @@
 {{ end }}
 
 {{ if .Site.Params.enableWaline }}
+{{ partial "third-party/waline-css.html" . }}
 <div id="waline"></div>
 <script type="module">
     import { init } from 'https://unpkg.com/@waline/client@v2.14.6/dist/waline.mjs';
@@ -26,7 +27,6 @@
         ],
     });
 </script>
-{{ partial "third-party/waline-css.html" . }}
 {{ end }}
 
 {{ if .Site.Params.enableDisqus }}
