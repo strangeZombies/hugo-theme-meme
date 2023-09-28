@@ -1,6 +1,6 @@
 // background.js
 //document.addEventListener('DOMContentLoaded', () => {
-fetch('https:/cdn.takami.cyou/wallpaper/')
+fetch('https://cdn.takami.cyou/wallpaper/')
   .then(response => response.blob())
   .then(blobData => {
     const imageUrl = URL.createObjectURL(blobData);
