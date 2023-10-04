@@ -371,6 +371,8 @@ $baseRelURL: "{{ "" | relURL | strings.TrimSuffix "/" }}";
     @import "components/back-to-top";
 {{ end }}
 
+@import "components/bg-music";
+
 {{ if .Site.Params.enableHighlight }}
     @import "components/highlight";
 {{ end }}

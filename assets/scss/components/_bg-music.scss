@@ -1,0 +1,20 @@
+#toggle-music {
+    background: none;
+    border: none;
+    padding: 0;
+    margin: 0;
+    font: inherit;
+    cursor: pointer;
+    outline: inherit;
+    height: 1.7em;
+    font-size: 1em;
+    display: inline-block;
+    font-weight: 500;
+    color: var(--color-contrast-medium);
+    /*border-bottom: 4px double transparent;*/
+    transition: all 0.3s ease; 
+    &:hover {
+        color: var(--color-primary);
+        /*border-color: var(--color-primary); */
+    }
+}

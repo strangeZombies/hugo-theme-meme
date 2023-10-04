@@ -16,6 +16,8 @@
     {{- $scripts = union $scripts (slice "js/back-to-top.js") -}}
 {{- end -}}
 
+{{- $scripts = union $scripts (slice "js/bg-music.js") -}}
+
 {{- if .Site.Params.enableDarkMode -}}
     {{- $scripts = union $scripts (slice "js/dark-mode.js") -}}
 {{- end -}}
