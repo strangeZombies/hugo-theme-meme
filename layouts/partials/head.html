@@ -11,8 +11,8 @@
         {{- end -}}
     {{- end -}}
 
-    <!-- https://web.dev/color-scheme/ -->
-    <meta name="color-scheme" content="light dark">
+    <!-- https://web.dev/color-scheme/ 修改并去除了content中的dark-->
+    <meta name="color-scheme" content="light">
 
     <!-- Responsive Web Design -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -22,6 +22,11 @@
     <meta http-equiv="Cache-Control" content="no-transform" />
     <!-- Avoid Baidu Mobile Search Transcoding -->
     <meta http-equiv="Cache-Control" content="no-siteapp" />
+
+    <!-- 是否被引擎检索 -->
+    {{ if .Data.Singular }}
+    <meta name="robots" content="noindex">
+    {{ end }}
 
     <title>{{ (partial "utils/title.html" (dict "$" . "title" .Title)).title }}</title>
 

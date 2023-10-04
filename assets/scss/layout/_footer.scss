@@ -1,11 +1,9 @@
 .footer {
     position: absolute;
-    bottom: 0;
+    bottom: -1em;
     width: 100%;
     font-size: 90%;
-    color: alpha(var(--color-contrast-large), 0.8);
     a {
-        color: alpha(var(--color-contrast-large), 0.8);
         &:hover {
             color: var(--color-primary);
         }
@@ -14,11 +12,12 @@
 
 .site-info {
     a {
-        border-bottom: 4px double transparent;
         padding: 0 .12em;
         position: relative;
+        font-weight: 540;
+        border-bottom: 1px dotted var(--color-primary);
         &:hover {
-            border-color: var(--color-primary);
+            border-bottom: 4px double var(--color-primary);
         }
     }
     /*https://juejin.cn/post/6893036159086100488*/
