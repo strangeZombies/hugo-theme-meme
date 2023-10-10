@@ -13,12 +13,12 @@
                 <a href="{{ .RelPermalink }}" class="summary-title-link u-url">{{ (partial "utils/title.html" (dict "$"
                     . "title" .LinkTitle)).htmlTitle }}</a>
             </h2>
-            {{ if $.Site.Params.enablePostMetaInHome }}
-            {{ partial "components/post-meta.html" (dict "$" . "isHome" true) }}
-            {{ end }}
             <summary class="summary p-summary">
                 {{ partial "utils/summary.html" . }}
             </summary>
+            {{ if $.Site.Params.enablePostMetaInHome }}
+            {{ partial "components/post-meta.html" (dict "$" . "isHome" true) }}
+            {{ end }}
             {{/* 客主觉得这里太冗余就注释掉了 也可在这里制作isReadMoreVisible: false
             {{ if or .Truncated .Params.summary }}
             <div class="read-more-container">

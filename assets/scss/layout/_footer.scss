@@ -2,9 +2,11 @@
     position: absolute;
     bottom: -1em;
     width: 100%;
+    color: var(--color-contrast-medium);
     a {
         font-weight: 400;
         border-bottom: 1px dotted var(--color-primary);
+        color: var(--color-contrast-medium);
         &:hover {
             border-bottom: 4px double var(--color-primary);
             color: var(--color-primary);
@@ -13,6 +15,7 @@
 }
 
 .site-info {
+    color: var(--color-contrast-medium);
     a {
         padding: 0 .12em;
         position: relative;

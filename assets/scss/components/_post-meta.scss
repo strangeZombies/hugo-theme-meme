@@ -6,8 +6,10 @@
     display: flex;
     justify-content: center;
     align-items: center;
+
     a {
         color: var(--color-contrast-medium);
+
         &:hover {
             color: var(--color-primary);
         }
@@ -16,16 +18,29 @@
 
 .home {
     .post-meta {
-        margin: 1rem 0;
+        justify-content: right;
+        margin-bottom: 3em;
+        margin-top: 0em;
+    }
+}
+
+.category-link.p-category {
+    border-bottom: 2px double transparent;
+
+    &:hover {
+        border-color: var(--color-primary);
     }
 }
 
 .post-meta-item {
     margin: 0.5em;
     display: inline-block;
+    color: var(--color-contrast-medium);
+    //color: alpha(var(--color-contrast-medium), 0.5);
 }
 
 .post-meta-icon {
-    fill: alpha(var(--color-contrast-medium), 0.5);
+    fill: var(--color-contrast-medium);
     margin-bottom: 0.3em;
+    margin-right: 0.3em;
 }
