@@ -25,9 +25,10 @@
 }
 
 .category-link.p-category {
-    border-bottom: 2px double transparent;
+    border-bottom: 4px double transparent;
 
     &:hover {
+        font-weight: 500;
         border-color: var(--color-primary);
     }
 }
