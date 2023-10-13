@@ -31,8 +31,10 @@
     a {
         text-decoration: underline;
         text-decoration-color: var(--color-contrast-low);
+        border-bottom: 4px double transparent;
         &:hover {
-            text-decoration-color: alpha(var(--color-primary), 0.5);
+            text-decoration-line: none;
+            border-color: alpha(var(--color-primary), 0.5);
         }
     }
 }

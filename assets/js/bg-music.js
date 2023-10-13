@@ -5,8 +5,9 @@ document.addEventListener('DOMContentLoaded', function () {
 
     // 定义歌曲列表，每首歌包含路径
     const songs = [
+        'https://music.163.com/song/media/outer/url?id=1339023244.mp3',
         'https://music.163.com/song/media/outer/url?id=2013748811.mp3',
-        'https://music.163.com/song/media/outer/url?id=202369.mp3',
+        'https://music.163.com/song/media/outer/url?id=202369.mp3'
         // 添加更多歌曲...
     ];
 
