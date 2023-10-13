@@ -1,5 +1,5 @@
 .tree {
-    overflow: auto hidden;
+    overflow: hidden;
     white-space: nowrap;
 
     ul {
@@ -38,7 +38,10 @@
 }
 
 .category-post {
+    border-bottom: 4px double transparent;
+    color: var(--color-contrast-medium);
     &:hover {
-        color: var(--color-contrast-medium);
+        color: var(--color-primary);
+        border-color: var(--color-primary);
     }
 }

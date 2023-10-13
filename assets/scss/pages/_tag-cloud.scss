@@ -5,4 +5,8 @@
 .tag-cloud-item {
     margin: 0.5rem;
     display: inline-block;
+    border-bottom: 4px double transparent;
+    &:hover{
+        border-color: var(--color-primary);
+    }
 }
