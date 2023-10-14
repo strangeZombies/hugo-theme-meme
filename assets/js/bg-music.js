@@ -2,6 +2,7 @@ document.addEventListener('DOMContentLoaded', function () {
     const bgMusic = document.getElementById('bg-music');
     const toggleButton = document.getElementById('toggle-music');
     const progressBar = document.getElementById('progress-bar');
+    const progressBarCon = document.getElementById('progress-bar-container');
 
     // 定义歌曲列表，每首歌包含路径
     const songs = [
@@ -54,6 +55,19 @@ document.addEventListener('DOMContentLoaded', function () {
         const progressPercentage = (currentTime / duration) * 100;
         progressBar.style.width = progressPercentage + '%';
     });
+
+    // 监听点击事件
+    progressBarCon.addEventListener('click', function (event) {
+        const boundingRect = progressBarCon.getBoundingClientRect();
+        const offsetX = event.clientX - boundingRect.left;
+        const percentage = (offsetX / boundingRect.width) * 100;
+
+        // 设置音乐播放位置
+        const duration = bgMusic.duration;
+        const newPosition = (percentage / 100) * duration;
+        bgMusic.currentTime = newPosition;
+    });
+
 
     function playCurrentSong() {
         const song = songs[currentSongIndex];
