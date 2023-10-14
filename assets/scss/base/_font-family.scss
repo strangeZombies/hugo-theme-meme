@@ -40,7 +40,7 @@
 }
 
 @if variable-exists("fontFamilyTOC") {
-    .contents {
+    .toc,.contents {
         font-family: $fontFamilyTOC;
     }
 }

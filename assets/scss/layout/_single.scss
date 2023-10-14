@@ -124,26 +124,35 @@ blockquote {
 }
 
 .contents {
-    //margin-top: 5em;
+    margin-top: 5em;
     ol, ul {
+        margin: .2em 0;
+        padding-bottom: .2em;
         list-style: none;
+        line-height: 1em;
     }
 }
 ol, ul {
     &.toc {
+        margin: 0;
         padding: 0;
         overflow: auto hidden;
         white-space: nowrap;
         position: fixed;
         right: 2em;
-        top: calc(50% - 5em);
+        top: calc(50% - 10em);
         max-width: calc((100% - 648px) / 2 );
+
         li {
             max-width:  calc(((100% - 648px) / 2) - 2em);
             border-bottom: 4px double transparent;
+            margin: .2em 0;
+            padding: .2em 0;
         }
-        font-weight: 550;
-        font-family: "glyph-correction","EB Garamond","PingFang SC","Lantinghei SC","Microsoft Yahei","Hiragino Sans GB","Microsoft Sans Serif","WenQuanYi Micro Hei",sans-serif,-apple-system,system-ui;
+        font-size: 1em;
+        line-height: 1em;
+        font-weight: 700;
+        //font-family: "glyph-correction","EB Garamond","PingFang SC","Lantinghei SC","Microsoft Yahei","Hiragino Sans GB","Microsoft Sans Serif","WenQuanYi Micro Hei",sans-serif,-apple-system,system-ui;
         background-color: rgba(255, 255, 255, 0.7);
     }
 }
@@ -270,7 +279,6 @@ pre {
         right: 0;
         border: 0;
         font-size: inherit;
-        color: var(--color-bg);
         background-color: alpha(var(--color-contrast-medium), 0.5);
         transition: all $duration;
         cursor: pointer;
