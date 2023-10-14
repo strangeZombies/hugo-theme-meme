@@ -1,5 +1,5 @@
 // background.js
-//document.addEventListener('DOMContentLoaded', () => {
+document.addEventListener('DOMContentLoaded', () => {
 fetch('https://cdn.takami.cyou/wallpaper/')
   .then(response => response.blob())
   .then(blobData => {
@@ -22,7 +22,7 @@ fetch('https://cdn.takami.cyou/wallpaper/')
   .catch(error => {
     console.error('Error fetching image from API:', error);
   });
- // });
+});
 
 // 防止博客被镜像
 // https://blog.kwxos.top/posts/13274.html
