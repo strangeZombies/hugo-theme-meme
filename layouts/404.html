@@ -29,10 +29,10 @@
             var lastSlashIndex = currentUrl.lastIndexOf('/');
             if (lastSlashIndex !== -1) {
                 var remainingPath = currentUrl.substr(lastSlashIndex + 1);
-                // 检查是否包含非法字符（例如括号）
-                if (remainingPath.match(/[\(\)#]/)) {
+                // 检查是否包含非法字符（中文、英文特殊字符和常见标点符号）
+                if (remainingPath.match(/[\(\)#\u4e00-\u9fa5,.;!?\[\]@$%^&*_+={}|\\'":<>,.`~]/)) {
                     // 包含非法字符，将其移除并重定向
-                    var validUrl = currentUrl.slice(0, lastSlashIndex) + '/' + remainingPath.replace(/[\(\)#]/g, '');
+                    var validUrl = currentUrl.slice(0, lastSlashIndex) + '/' + remainingPath.replace(/[\(\)#\u4e00-\u9fa5,.;!?\[\]@$%^&*_+={}|\\'":<>,.`~]/g, '');
                     window.location.replace(validUrl);
                 }
             }
