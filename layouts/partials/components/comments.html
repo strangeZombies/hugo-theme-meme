@@ -8,18 +8,27 @@
 
 {{ if .Site.Params.enableWaline }}
 {{ partial "third-party/waline-css.html" . }}
+<h3 class="comment-h3">发表评论</h3>
 <div id="waline"></div>
+<style>
+    .wl-gif-popup,.wl-meta-head {
+    display: none;
+    }
+    .comment-h3 {
+        font-family: "glyph-correction","EB Garamond","KaiTi","Kaiti SC","BiauKai","Georgia","Times New Roman","Times",serif;}
+</style>
 <script type="module">
     import { init } from 'https://npm.elemecdn.com/@waline/client@v2/dist/waline.mjs';
 
     init({
         el: '#waline',
         lang: 'zh-CN',
-        reaction: true, // 开启反应
+        reaction: false, // 开启反应
         serverURL: 'https://waline.takami.cyou',
-        dark: 'body.dark',
-        copyright: false,
-
+        dark: 'body.light',
+        copyright: true,
+        search: false,
+        imageUploader: false, //关闭插入图片
         // 设置 emoji 为贴吧与哔哩哔哩
         emoji: [
             'https://npm.elemecdn.com/@waline/emojis@1.2.0/tieba',
