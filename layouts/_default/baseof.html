@@ -2,6 +2,9 @@
 <html lang="{{ .Site.LanguageCode }}"{{ if and .Site.Params.enableDarkMode .Site.Params.overrideSystemPreferences }}{{ with .Site.Params.defaultTheme | default "light" }} data-theme="{{ . }}"{{ end }}{{ end }}>
     {{ partial "head.html" . }}
     <body>
+        {{ if .IsHome }}
+        <h1 class="site-title">{{ .Site.Title }}</h1>
+        {{ end }}
         <div class="container">
             {{ partial "header.html" . }}
             {{ if ne .Site.Params.headerLayout "flex" }}
