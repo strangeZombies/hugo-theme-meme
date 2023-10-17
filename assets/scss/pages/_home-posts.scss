@@ -1,4 +1,27 @@
 article.content.post.home {
+    position: relative;
+    &::after,&::before {
+        position: absolute;
+color: #777;
+    }
+    &::before {
+        left: -2em;
+        bottom: -0.6em;
+        content: '✄';
+        width: 1.4em;
+        height: 1.4em;
+        font-size: 1.4em;
+        line-height: 1.4em;
+        font-weight: 700;
+    }
+    &::after {
+        left: -2em;
+        bottom: 0em;
+        content: '-----------------------------------------------------------------------------------------------------------------';
+        width: calc(100% + 2em);
+        height: 1em;
+        overflow: hidden;
+    }
     h2 {
         padding-left: .2em;
         margin-bottom: .5em;
@@ -15,6 +38,7 @@ article.content.post.home {
     color: #333;
     text-indent: 2rem;
     padding: .2em;
+    margin-bottom: 1em;
 }
 
 .read-more-container {
