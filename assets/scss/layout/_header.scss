@@ -1,5 +1,6 @@
 .header {
     z-index: 3;
+    border-bottom: 1px dotted #777;
 }
 /* 由于对layout的修改$siteBrandSVG将永远显示，顺便也增加了此处*/
 .site-brand {
