@@ -1,7 +1,7 @@
 // background.js 
 // https://cdn.takami.cyou/wallpaper/
 document.addEventListener('DOMContentLoaded', () => {
-fetch('https://cdn.takami.cyou/wallpaper/')
+fetch('https://api.aixiaowai.cn/gqapi/gqapi.php')
   .then(response => response.blob())
   .then(blobData => {
     const imageUrl = URL.createObjectURL(blobData);
