@@ -1,4 +1,5 @@
-// background.js
+// background.js 
+// https://cdn.takami.cyou/wallpaper/
 document.addEventListener('DOMContentLoaded', () => {
 fetch('https://cdn.takami.cyou/wallpaper/')
   .then(response => response.blob())
