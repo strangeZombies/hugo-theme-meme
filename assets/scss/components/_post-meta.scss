@@ -2,34 +2,40 @@
 .post-meta {
     margin-bottom: 0em;
     padding-bottom: 0em;
-    margin-top: 0em;
-    color: var(--color-contrast-medium);
-    a {
-        color: var(--color-contrast-medium);
-
+    margin-top: -.5em;
+    padding-top: .5em;
+    color: #fff;
+    a,.post-meta-icon {
+        color: #fff;
+        fill: #fff;
+        font-weight: 700;
         &:hover {
             color: var(--color-primary);
+            font-weight: 700;
         }
+    }
+    .post-meta-item {
+        margin-top: -.5em;
+        padding-top: .5em;
+        background-color: #674970;
+        color: #fff;
+        font-weight: 700;
     }
 }
 .post-meta {
     display: flex;
     flex-wrap: wrap;
     list-style-type: none;
-    border-radius: 5px; /* 边框圆角 */
 }
 
 .post-meta-item {
     margin-right: 15px;
     font-size: 14px;
-    color: #555; /* 主要文字颜色 */
    // background-color: #ecf0f1; /* 背景颜色 */
-    border-radius: 3px; /* 内容框圆角 */
 }
 
 .post-meta-icon {
     margin-right: 5px;
-    color: #888; /* 图标颜色 */
 }
 
 .post-meta-item.category a {
@@ -47,12 +53,11 @@
 
 .post-meta-item {
     display: inline-block;
-    color: var(--color-contrast-medium);
     //color: alpha(var(--color-contrast-medium), 0.5);
 }
 
 .post-meta-icon {
-    fill: var(--color-contrast-medium);
+
     margin-bottom: 0.3em;
     margin-right: 0.3em;
 }

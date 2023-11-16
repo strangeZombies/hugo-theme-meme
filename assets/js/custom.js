@@ -2,10 +2,6 @@
 // https://cdn.takami.cyou/wallpaper/
 // https://api.aixiaowai.cn/gqapi/gqapi.php
 document.addEventListener('DOMContentLoaded', () => {
-fetch('https://cdn.takami.cyou/wallpaper/')
-  .then(response => response.blob())
-  .then(blobData => {
-    const imageUrl = URL.createObjectURL(blobData);
     const backgroundImage = document.createElement('div');
     backgroundImage.classList.add('background-image');
     backgroundImage.style.position = 'fixed';
@@ -13,17 +9,13 @@ fetch('https://cdn.takami.cyou/wallpaper/')
     backgroundImage.style.left = '0';
     backgroundImage.style.width = '100%';
     backgroundImage.style.height = '100%';
-    backgroundImage.style.backgroundImage = `url(${imageUrl})`;
     backgroundImage.style.backgroundSize = 'cover';
     backgroundImage.style.backgroundRepeat = 'no-repeat';
     backgroundImage.style.backgroundPosition = 'right center';
-    backgroundImage.style.opacity = '.3'; /* 调整透明度 */
+    backgroundImage.style.opacity = '1'; /* 调整透明度 */
     backgroundImage.style.zIndex = '-2'; // 设置 z-index
+    backgroundImage.style.backgroundColor = '#2e2256';
     document.body.appendChild(backgroundImage);
-  })
-  .catch(error => {
-    console.error('Error fetching image from API:', error);
-  });
 });
 
 // 防止博客被镜像
