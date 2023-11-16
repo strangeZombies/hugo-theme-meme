@@ -124,10 +124,9 @@ strong {
 .anchor-link > svg {
     display: none;
 }
-.content ,header,article, .post-tags,.post-nav,.pagination>li>a,footer,.post-body h1, .post-body h2, .post-body h3, .post-body h4, .post-body h5, .post-body h6{
+.post-title > a,.post-meta-item,.content,.list-title ,header,article, .post-tags,.post-nav,.pagination>li>a,footer,.post-body h1, .post-body h2, .post-body h3, .post-body h4, .post-body h5, .post-body h6{
     background-color: rgba($color: #fff7f7, $alpha: 0.7);
 }
 .content > .list-title {
     font-size: 1.5em;
-
 }
