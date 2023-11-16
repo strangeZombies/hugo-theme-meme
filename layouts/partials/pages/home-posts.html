@@ -9,6 +9,9 @@
         {{ $paginator := .Paginate $pages }}
         {{ range $paginator.Pages }}
         <article class="content post home h-entry">
+            {{ if $.Site.Params.enablePostMetaInHome }}
+            {{ partial "components/post-meta.html" (dict "$" . "isHome" true) }}
+            {{ end }}
             <h2 class="post-title p-name">
                 <a href="{{ .RelPermalink }}" class="summary-title-link u-url">{{ (partial "utils/title.html" (dict "$"
                     . "title" .LinkTitle)).htmlTitle }}</a>
@@ -16,9 +19,6 @@
             <summary class="summary p-summary">
                 {{ partial "utils/summary.html" . }}
             </summary>
-            {{ if $.Site.Params.enablePostMetaInHome }}
-            {{ partial "components/post-meta.html" (dict "$" . "isHome" true) }}
-            {{ end }}
             {{/* 客主觉得这里太冗余就注释掉了 也可在这里制作isReadMoreVisible: false
             {{ if or .Truncated .Params.summary }}
             <div class="read-more-container">
@@ -36,6 +36,11 @@
                 <a href="{{ $paginator.Prev.URL }}" rel="prev"><span>{{/*&lt;*/}} {{ i18n "prevPage" }}</a>
             </li>
             {{ end }}
+            {{ range $paginator.Pagers }}
+                <li class="pagination-item{{ if eq . $paginator }} active{{ end }}">
+                    <a href="{{ .URL }}">{{ .PageNumber }}</a>
+                </li>
+            {{ end }}
             {{ if $paginator.HasNext }}
             <li class="pagination-next">
                 <a href="{{ $paginator.Next.URL }}" rel="next">{{ i18n "nextPage" }} {{/*&gt;*/}}</a>
@@ -45,93 +50,3 @@
         {{ end }}
     </div>
 </main>
-{{/*<main class="main single" id="main">
-    <div class="main-inner">
-        <!-- 开始 输出一定数量的位于 posts 分类下的文章 -->
-        {{ $pages := where .Site.RegularPages "Section" "in" .Site.Params.mainSections }}
-        {{ if .Site.Params.enableHideInHomepage }}
-        {{ $pages = where $pages ".Params.hideInHomepage" "ne" true }}
-        {{ end }}
-        {{ $paginator := .Paginate $pages }}
-        {{ range $paginator.Pages }}
-        <article class="content post home h-entry">
-            <h2 class="post-title p-name">
-                <a href="{{ .RelPermalink }}" class="summary-title-link u-url">{{ (partial "utils/title.html" (dict "$"
-                    . "title" .LinkTitle)).htmlTitle }}</a>
-            </h2>
-            {{ if $.Site.Params.enablePostMetaInHome }}
-            {{ partial "components/post-meta.html" (dict "$" . "isHome" true) }}
-            {{ end }}
-            <summary class="summary p-summary">
-                {{ partial "utils/summary.html" . }}
-            </summary>
-        </article>
-        {{ end }}
-        <!-- 结束 输出一定数量的位于 posts 分类下的文章 -->
-
-        <!-- 开始 分页导航 -->
-        {{ $paginator := .Paginator }}
-        <!-- 基础偏移变量 -->
-        {{ $offsetLinks := 2 }}
-        <!-- $maxLinks = ($offsetLinks * 2) + 1 -->
-        {{ $maxLinks := (add (mul $offsetLinks 2) 1) }}
-        <!-- $lowerLimit = $offsetLinks + 1 -->
-        {{ $lowerLimit := (add $offsetLinks 1) }}
-        <!-- $upperLimit = $paginator.TotalPages - $offsetLinks -->
-        {{ $upperLimit := (sub $paginator.TotalPages $offsetLinks) }}
-
-        <!-- 如果有超过一页的内容 (即需要导航栏) -->
-        {{ if gt $paginator.TotalPages 1 }}
-        <ul class="pagination">
-            <!-- 上一页 -->
-            {{ if $paginator.HasPrev }}
-            <li class="pag-item pag-previous">
-                <a href="{{ $paginator.Prev.URL }}" class="pag-link">«</a>
-            </li>
-            {{ end }}
-
-            <!-- 数字页码部分 -->
-            {{ range $paginator.Pagers }}
-            {{ $.Scratch.Set "pageNumFlag" false }}
-            <!-- 页码数足够多的情况 -->
-            {{ if gt $paginator.TotalPages $maxLinks }}
-            <!-- 如果当前页面为例子中的 1-3 区间  -->
-            {{ if le $paginator.PageNumber $lowerLimit }}
-            {{ if le .PageNumber $maxLinks }}
-            {{ $.Scratch.Set "pageNumFlag" true }}
-            {{ end }}
-            <!-- 如果当前页面为例子中的 8-10 区间 -->
-            {{ else if ge $paginator.PageNumber $upperLimit }}
-            {{ if gt .PageNumber (sub $paginator.TotalPages $maxLinks) }}
-            {{ $.Scratch.Set "pageNumFlag" true }}
-            {{ end }}
-            <!-- 如果当前页面为例子中的 4-7 区间 -->
-            {{ else }}
-            {{ if and ( ge .PageNumber (sub $paginator.PageNumber $offsetLinks) ) ( le .PageNumber (add
-            $paginator.PageNumber $offsetLinks) ) }}
-            {{ $.Scratch.Set "pageNumFlag" true }}
-            {{ end }}
-            {{ end }}
-            <!-- 页码数不够多的情况 -->
-            {{ else }}
-            {{ $.Scratch.Set "pageNumFlag" true }}
-            {{ end }}
-            <!-- 输出页码 -->
-            {{ if eq ($.Scratch.Get "pageNumFlag") true }}
-            <li class="pag-item{{ if eq . $paginator }} pag-current{{ end }}">
-                <a href="{{ .URL }}" class="pag-link">
-                    {{ .PageNumber }}
-                </a>
-            </li>
-            {{ end }}
-            {{ end }}
-            <!-- 下一页 -->
-            {{ if $paginator.HasNext }}
-            <li class="pag-item pag-next">
-                <a href="{{ $paginator.Next.URL }}" class="pag-link">»</a>
-            </li>
-            {{ end }}
-        </ul>
-        {{ end }}
-    </div>
-</main>*/}}

@@ -1,4 +1,4 @@
-article.content.post.home {
+/*article.content.post.home {
     position: relative;
     &::after,&::before {
         position: absolute;
@@ -6,7 +6,7 @@ color: #777;
     }
     &::before {
         left: -2em;
-        bottom: -0.6em;
+        bottom: -1.4em;
         content: '✄';
         width: 1.4em;
         height: 1.4em;
@@ -16,7 +16,7 @@ color: #777;
     }
     &::after {
         left: -2em;
-        bottom: 0em;
+        bottom: -1.2em;
         content: '-----------------------------------------------------------------------------------------------------------------';
         width: calc(100% + 2em);
         height: 1em;
@@ -49,40 +49,71 @@ color: #777;
 .read-more-link {
     display: inline-block;
 }
+*/
+
+.summary {
+    text-indent: 2rem;
+}
 
 .pagination {
     display: flex;
     justify-content: center;
-    padding: 0 22px;
     list-style-type: none;
-
-    li {
-        a {
-            position: relative;
-            font-size: .9em;
-            font-weight: 500;
-            border-bottom: 4px double transparent;
-            padding: .2em .4em;
-
-            &:hover {
-                font-weight: 700;
-                color: var(--color-primary);
-                border-color: var(--color-primary);
-            }
-        }
-    }
+    flex-wrap: wrap;
+    flex-direction: row;
+    line-height:  2.2em;
+    text-align: left;
+    margin: 0;
+    padding: 0;
+    margin-top: 3em;
 }
 
-.pag-item {
-    display: block;
-    color: inherit;
-    flex: 0 1 auto;
-    text-align: center;
-    width: 42px;
-    height: 32px;
-    line-height: 32px;
-    cursor: pointer;
-    transition: background-color 100ms ease;
-    border-radius: 4px;
-    margin-left: 5px;
+.pagination-item {
+    margin: 0 5px;
+}
+
+
+.pagination-item a {
+    text-decoration: none;
+    color: #333;
+    padding: 5px 10px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+}
+
+.pagination-item.active {
+    display: inline-block;
+}
+
+.pagination-item.active a {
+    background-color: var(--color-primary);
+    color: #fff;
+}
+
+.pagination-prev,
+.pagination-next {
+    margin: 0 5px;
+}
+
+.pagination-prev a,
+.pagination-next a {
+    text-decoration: none;
+    padding: 5px 10px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    background-color: transparent;
+}
+
+.pagination-prev a:hover,
+.pagination-next a:hover,
+.pagination-item a:hover {
+    color: #fff;
+    background-color: var(--color-primary);
+}
+
+
+.content.post.home {
+    padding: .3em;
+    margin: .3em;
+    border: 1px solid #ccc;
 }
