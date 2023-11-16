@@ -122,3 +122,10 @@ strong {
     left: 0;
     z-index: -40;
 }
+
+article {
+    border-radius: .3rem;
+}
+article,header,.pagination>li>a,footer {
+    background-color: rgba($color: #fff, $alpha: 0.8);
+}

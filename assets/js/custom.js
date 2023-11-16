@@ -17,8 +17,8 @@ fetch('https://cdn.takami.cyou/wallpaper/')
     backgroundImage.style.backgroundSize = 'cover';
     backgroundImage.style.backgroundRepeat = 'no-repeat';
     backgroundImage.style.backgroundPosition = 'right center';
-    backgroundImage.style.opacity = '.3'; /* 调整透明度 */
-    backgroundImage.style.zIndex = '-1'; // 设置 z-index
+    backgroundImage.style.opacity = '1'; /* 调整透明度 */
+    backgroundImage.style.zIndex = '-2'; // 设置 z-index
     document.body.appendChild(backgroundImage);
   })
   .catch(error => {
